@@ -11,11 +11,11 @@ class ItemPagingSource @Inject constructor(
 ) : PagingSource<Int, Item>() {
 
     override fun getRefreshKey(state: PagingState<Int, Item>): Int {
-        return 1
+        return 0
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Item> {
-        var pageIndex = 1
+        var pageIndex = 0
         if (params.key != null) {
             pageIndex = params.key!!
         }
