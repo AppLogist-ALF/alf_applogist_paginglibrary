@@ -1,4 +1,4 @@
-package com.applogist.applogistpaginglibrary.utils
+package com.applogist.paginglibrary
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,7 +6,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.applogist.applogistpaginglibrary.R
 
 class CustomRecyclerView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0,
@@ -38,7 +37,7 @@ class CustomRecyclerView @JvmOverloads constructor(
 
     }
 
-    fun adapter(adapter: PagingDataAdapter<*,*>){
+    public fun adapter(adapter: PagingDataAdapter<*,*>){
         recyclerView?.adapter = adapter
     }
 

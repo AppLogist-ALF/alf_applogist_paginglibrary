@@ -46,7 +46,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
 
     private fun initAdapter() {
-        binding.customRecyclerView.adapter(vAdapter)
+        binding.customRecyclerView.
     }
 
     private fun initPagingAdapterLoadStateListener() {

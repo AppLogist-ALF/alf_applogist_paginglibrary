@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.applogist.applogistpaginglibrary'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.applogist.applogistpaginglibrary"
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -102,4 +102,6 @@ dependencies {
     implementation "androidx.navigation:navigation-runtime-ktx:$navigation"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation"
+
+    implementation project(":PagingLibrary")
 }

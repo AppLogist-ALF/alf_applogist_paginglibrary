@@ -5,7 +5,7 @@
     tools:context=".ui.fragment.mainscreen.MainScreenFragment"
     tools:ignore="MissingDefaultResource">
 
-    <com.applogist.applogistpaginglibrary.utils.CustomRecyclerView
+    <com.applogist.paginglibrary.CustomRecyclerView
         android:id="@+id/customRecyclerView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
