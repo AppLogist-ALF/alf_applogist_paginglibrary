@@ -1,9 +1,7 @@
 package com.applogist.applogistpaginglibrary
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import com.applogist.applogistpaginglibrary.adapter.PopularMoviePagingAdapter
@@ -17,7 +15,7 @@ import kotlinx.coroutines.launch
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private val viewModel: MainScreenViewModel by viewModels()
-    lateinit var adapter: PopularMoviePagingAdapter
+    lateinit var vAdapter: PopularMoviePagingAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,35 +26,31 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun prepareView(savedInstanceState: Bundle?) {
-        adapter = PopularMoviePagingAdapter {
-
+        vAdapter = PopularMoviePagingAdapter {
+            //detaya atılcak
         }
         initAdapter()
         pagingObserve()
-        swipeRefresh()
+        initPagingAdapterLoadStateListener()
+
     }
 
     private fun pagingObserve() {
         lifecycleScope.launch {
             viewModel.fetchList().collectLatest { response ->
-                adapter.submitData(response)
+                vAdapter.submitData(response)
             }
         }
     }
 
-    private fun swipeRefresh() {
-        binding.swipeRefreshLayout.setOnRefreshListener {
-            pagingObserve()
-            binding.swipeRefreshLayout.isRefreshing = false
-        }
-    }
+
 
     private fun initAdapter() {
-        binding.popularMoviesRecyclerView.adapter = adapter
+        binding.customRecyclerView.adapter(vAdapter)
     }
 
     private fun initPagingAdapterLoadStateListener() {
-        adapter.addLoadStateListener { combinedLoadStates ->
+        vAdapter.addLoadStateListener { combinedLoadStates ->
             if (combinedLoadStates.refresh is LoadState.Loading) {
 //                LogUtils.d("samsamsam", "loading")
 //                showProgressDialog()
