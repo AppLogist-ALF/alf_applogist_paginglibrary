@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
 }
@@ -60,7 +60,7 @@ afterEvaluate {
 
                 groupId = 'com.applogist'
                 artifactId = 'alf_custom_paginlibrary'
-                version = '1.0.0'
+                version = '1.0.1'
             }
         }
     }
