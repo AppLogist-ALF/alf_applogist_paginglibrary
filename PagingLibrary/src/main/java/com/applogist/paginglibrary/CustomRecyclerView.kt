@@ -30,7 +30,6 @@ class CustomRecyclerView @JvmOverloads constructor(
         recyclerView = findViewById(R.id.recyclerView)
 
         try {
-            swipeRefresh()
         } finally {
             customAttributesStyle.recycle()
         }
@@ -41,9 +40,10 @@ class CustomRecyclerView @JvmOverloads constructor(
         recyclerView?.adapter = adapter
     }
 
-    private fun swipeRefresh() {
+    fun swipeRefresh(itemClick: () -> Unit ) {
         swipeRefreshLayout?.setOnRefreshListener {
             swipeRefreshLayout?.isRefreshing = false
+            itemClick.invoke()
         }
     }
 

@@ -47,6 +47,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun initAdapter() {
         binding.view.adapter(vAdapter)
+        binding.view.swipeRefresh {
+            pagingObserve()
+        }
     }
 
     private fun initPagingAdapterLoadStateListener() {
